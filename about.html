@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - Veo, Veo</title>
-    <meta name="description" content="Descubre la historia de Veo, Veo. Somos jóvenes apasionados por crear galletas artesanas que endulzan momentos especiales.">
+    <title>About Us - Veo, Veo</title>
+    <meta name="description" content="Discover the story of Veo, Veo. We are young people passionate about creating artisan cookies that sweeten special moments.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,8 @@
         @media (max-width: 768px) { .floating-nav { top: 8px; left: 8px; right: 8px; } }
         .cart-sidebar { transform: translateX(100%); transition: transform 300ms ease; }
         .cart-sidebar.open { transform: translateX(0); }
+        .team-card { transition: all 200ms ease; }
+        .team-card:hover { transform: translateY(-4px); }
         .value-card { transition: all 200ms ease; }
         .value-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px rgba(0,0,0,0.15); }
         @media (prefers-reduced-motion: reduce) {
@@ -59,10 +61,10 @@
                     <span class="font-heading text-3xl font-bold text-primary">Veo, Veo</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Inicio</a>
-                    <a href="productos.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Productos</a>
-                    <a href="nosotros.html" class="font-body font-medium text-primary transition-colors cursor-pointer">Nosotros</a>
-                    <a href="recetas.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Recetas</a>
+                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Home</a>
+                    <a href="products.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Products</a>
+                    <a href="about.html" class="font-body font-medium text-primary transition-colors cursor-pointer">About Us</a>
+                    <a href="recipes.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Recipes</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="cartBtn" class="relative p-2 hover:bg-background rounded-full transition-colors cursor-pointer">
@@ -77,10 +79,10 @@
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 rounded-b-2xl">
             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Inicio</a>
-                <a href="productos.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Productos</a>
-                <a href="nosotros.html" class="block font-body font-medium text-primary transition-colors py-2">Nosotros</a>
-                <a href="recetas.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Recetas</a>
+                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Home</a>
+                <a href="products.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Products</a>
+                <a href="about.html" class="block font-body font-medium text-primary transition-colors py-2">About Us</a>
+                <a href="recipes.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Recipes</a>
             </div>
         </div>
     </nav>
@@ -90,7 +92,7 @@
     <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 cart-sidebar shadow-2xl">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6 border-b">
-                <h3 class="font-heading text-3xl font-bold text-primary">Tu Carrito</h3>
+                <h3 class="font-heading text-3xl font-bold text-primary">Your Cart</h3>
                 <button id="closeCart" class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
                     <i data-lucide="x" class="w-6 h-6 text-text"></i>
                 </button>
@@ -98,7 +100,7 @@
             <div id="cartItems" class="flex-1 overflow-y-auto p-6">
                 <div class="text-center text-gray-500 mt-8">
                     <i data-lucide="shopping-bag" class="w-16 h-16 mx-auto mb-4 opacity-30"></i>
-                    <p>Tu carrito está vacío</p>
+                    <p>Your cart is empty</p>
                 </div>
             </div>
             <div class="border-t p-6 bg-gray-50">
@@ -106,7 +108,7 @@
                     <span class="font-body font-semibold text-text">Total:</span>
                     <span id="cartTotal" class="font-heading text-3xl font-bold text-primary">€0.00</span>
                 </div>
-                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Finalizar Compra</button>
+                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Checkout</button>
             </div>
         </div>
     </div>
@@ -116,9 +118,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-white">
-                    <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-body font-semibold mb-6">Nuestra Historia</span>
-                    <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Somos jóvenes<br>con pasión</h1>
-                    <p class="font-body text-xl mb-6 opacity-90">Porque creemos que lo mejor de la vida se comparte, especialmente cuando es dulce.</p>
+                    <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-body font-semibold mb-6">Our Story</span>
+                    <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">We're young<br>with passion</h1>
+                    <p class="font-body text-xl mb-6 opacity-90">Because we believe the best things in life are shared, especially when they're sweet.</p>
                 </div>
                 <div class="relative">
                     <div class="absolute inset-0 bg-white/10 rounded-3xl transform -rotate-3"></div>
@@ -132,15 +134,15 @@
     <section class="py-16 md:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">Cómo Empezamos</span>
-                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-6">Una Historia de Amor y Harina</h2>
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">How We Started</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-6">A Story of Love and Flour</h2>
             </div>
             <div class="space-y-8 font-body text-lg text-text leading-relaxed">
-                <p>Todo comenzó en el pequeño apartamento de Ana y Carlos en Madrid. Era 2023, teníamos 25 años y estábamos cansados de trabajos que no nos llenaban. Una tarde lluviosa, mientras horneábamos galletas para una cena con amigos, nos dimos cuenta de algo: cuando la gente probaba nuestras galletas, sonreía. Realmente sonreía. No esa sonrisa educada, sino esa sonrisa que solo aparece cuando algo te sorprende gratamente.</p>
+                <p>It all started in Ana and Carlos's small apartment in Madrid. It was 2023, we were 25 years old, and we were tired of jobs that didn't fulfill us. One rainy afternoon, while baking cookies for a dinner with friends, we realized something: when people tasted our cookies, they smiled. Really smiled. Not that polite smile, but that smile that only comes when something surprises you pleasantly.</p>
                 
-                <p>Empezamos vendiendo a amigos, luego a amigos de amigos. Pronto, nuestro pequeño horno no daba abasto. ¿El ingrediente secreto? Amor, sí, pero también mucha experimentación. Queríamos galletas que no solo supieran bien sino que fueran <strong>instagrammables</strong>. Que la gente quisiera compartir, presumir y estar orgullosa de ellas.</p>
+                <p>We started selling to friends, then to friends of friends. Soon, our small oven couldn't keep up. The secret ingredient? Love, yes, but also a lot of experimentation. We wanted cookies that not only tasted good but were <strong>instagrammable</strong>. That people would want to share, show off, and be proud of.</p>
                 
-                <p>Hoy, Veo, Veo no es solo una tienda de galletas. Es un equipo de 6 jóvenes apasionados con una misión clara: <strong>endulzar los momentos especiales de las personas</strong>. Desde ese primer horno hasta hoy, hemos aprendido que lo mejor no es vender galletas, es formar parte de los momentos felices de nuestros clientes.</p>
+                <p>Today, Veo, Veo is not just a cookie shop. It's a team of 6 young, passionate people with a clear mission: <strong>to sweeten people's special moments</strong>. From that first batch until today, we've learned that the best thing isn't selling cookies, it's being part of our customers' happy moments.</p>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
@@ -149,28 +151,28 @@
                         <i data-lucide="heart" class="w-8 h-8 text-primary"></i>
                     </div>
                     <p class="font-heading text-3xl font-bold text-primary">2023</p>
-                    <p class="font-body text-sm text-gray-600">Año de fundación</p>
+                    <p class="font-body text-sm text-gray-600">Year founded</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="users" class="w-8 h-8 text-primary"></i>
                     </div>
                     <p class="font-heading text-3xl font-bold text-primary">6</p>
-                    <p class="font-body text-sm text-gray-600">Miembros del equipo</p>
+                    <p class="font-body text-sm text-gray-600">Team members</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="cookie" class="w-8 h-8 text-primary"></i>
                     </div>
                     <p class="font-heading text-3xl font-bold text-primary">10</p>
-                    <p class="font-body text-sm text-gray-600">Sabores únicos</p>
+                    <p class="font-body text-sm text-gray-600">Unique flavors</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="smile" class="w-8 h-8 text-primary"></i>
                     </div>
                     <p class="font-heading text-3xl font-bold text-primary">5000+</p>
-                    <p class="font-body text-sm text-gray-600">Clientes felices</p>
+                    <p class="font-body text-sm text-gray-600">Happy customers</p>
                 </div>
             </div>
         </div>
@@ -180,8 +182,8 @@
     <section class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">Nuestra Esencia</span>
-                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-4">Lo Que Nos Define</h2>
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">Our Essence</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-4">What Defines Us</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -189,24 +191,68 @@
                     <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-lucide="sparkles" class="w-10 h-10 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Calidad Artesanal</h3>
-                    <p class="font-body text-text">Cada galleta está hecha a mano, con ingredientes seleccionados y mucho amor. Sin producción en masa, solo pasión.</p>
+                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Artisan Quality</h3>
+                    <p class="font-body text-text">Each cookie is handmade, with selected ingredients and lots of love. No mass production, just passion.</p>
                 </div>
                 
                 <div class="value-card bg-background p-8 rounded-2xl text-center">
                     <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-lucide="leaf" class="w-10 h-10 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Sostenibilidad</h3>
-                    <p class="font-body text-text">Nuestro embalaje es 100% orgánico y biodegradable. Porque cuidar el planeta es también cuidar nuestro futuro.</p>
+                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Sustainability</h3>
+                    <p class="font-body text-text">Our packaging is 100% organic and biodegradable. Because taking care of the planet is also taking care of our future.</p>
                 </div>
                 
                 <div class="value-card bg-background p-8 rounded-2xl text-center">
                     <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-lucide="heart-handshake" class="w-10 h-10 text-white"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Momentos Especiales</h3>
-                    <p class="font-body text-text">No vendemos galletas, creamos experiencias. Cada bocado debe ser un momento para recordar y compartir.</p>
+                    <h3 class="font-heading text-3xl font-bold text-primary mb-4">Special Moments</h3>
+                    <p class="font-body text-text">We don't sell cookies, we create experiences. Every bite should be a moment to remember and share.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">The Dream Team</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-4">Who We Are</h2>
+                <p class="font-body text-lg text-text max-w-2xl mx-auto">Six crazy people who believe the world needs more sweet moments</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Ana" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-primary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Ana</h4>
+                    <p class="font-body text-sm text-gray-600">Founder & CEO</p>
+                </div>
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Carlos" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-secondary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Carlos</h4>
+                    <p class="font-body text-sm text-gray-600">Co-founder & Baker</p>
+                </div>
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200" alt="Lucia" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-primary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Lucia</h4>
+                    <p class="font-body text-sm text-gray-600">Marketing & Social</p>
+                </div>
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" alt="Marco" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-secondary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Marco</h4>
+                    <p class="font-body text-sm text-gray-600">Product Development</p>
+                </div>
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Sofia" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-primary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Sofia</h4>
+                    <p class="font-body text-sm text-gray-600">Customer Service</p>
+                </div>
+                <div class="team-card text-center">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200" alt="Pablo" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-secondary">
+                    <h4 class="font-heading text-2xl font-bold text-primary">Pablo</h4>
+                    <p class="font-body text-sm text-gray-600">Logistics</p>
                 </div>
             </div>
         </div>
@@ -216,8 +262,8 @@
     <section class="py-16 md:py-24 bg-primary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">De Nuestra Cocina a tu Hogar</span>
-                <h2 class="font-heading text-5xl md:text-6xl font-bold mb-4">Nuestro Proceso</h2>
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">From Our Kitchen to Your Home</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold mb-4">Our Process</h2>
             </div>
             
             <div class="grid md:grid-cols-4 gap-8">
@@ -225,29 +271,29 @@
                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="font-heading text-3xl font-bold">1</span>
                     </div>
-                    <h4 class="font-heading text-2xl font-bold mb-3">Selección</h4>
-                    <p class="font-body text-white/80">Ingredientes de calidad premium, locales cuando es posible</p>
+                    <h4 class="font-heading text-2xl font-bold mb-3">Selection</h4>
+                    <p class="font-body text-white/80">Premium quality ingredients, local when possible</p>
                 </div>
                 <div class="text-center">
                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="font-heading text-3xl font-bold">2</span>
                     </div>
-                    <h4 class="font-heading text-2xl font-bold mb-3">Preparación</h4>
-                    <p class="font-body text-white/80">Cada galleta amasada y moldeada a mano con amor</p>
+                    <h4 class="font-heading text-2xl font-bold mb-3">Preparation</h4>
+                    <p class="font-body text-white/80">Each cookie kneaded and shaped by hand with love</p>
                 </div>
                 <div class="text-center">
                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="font-heading text-3xl font-bold">3</span>
                     </div>
-                    <h4 class="font-heading text-2xl font-bold mb-3">Horneado</h4>
-                    <p class="font-body text-white/80">Horno tradicional para ese punto crujiente perfecto</p>
+                    <h4 class="font-heading text-2xl font-bold mb-3">Baking</h4>
+                    <p class="font-body text-white/80">Traditional oven for that perfect crunchy point</p>
                 </div>
                 <div class="text-center">
                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="font-heading text-3xl font-bold">4</span>
                     </div>
-                    <h4 class="font-heading text-2xl font-bold mb-3">Embalaje</h4>
-                    <p class="font-body text-white/80">Embalaje ecológico que protege y encanta</p>
+                    <h4 class="font-heading text-2xl font-bold mb-3">Packaging</h4>
+                    <p class="font-body text-white/80">Eco-friendly packaging that protects and charms</p>
                 </div>
             </div>
         </div>
@@ -256,10 +302,10 @@
     <!-- CTA -->
     <section class="py-16 md:py-24 bg-background">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-6">¿Listo para probar?</h2>
-            <p class="font-body text-xl text-text mb-8">Únete a los miles de personas que ya disfrutan nuestras galletas</p>
-            <a href="productos.html" class="inline-block bg-primary text-white px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer hover:bg-secondary transition-colors">
-                Ver Productos
+            <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-6">Ready to try?</h2>
+            <p class="font-body text-xl text-text mb-8">Join the thousands of people already enjoying our cookies</p>
+            <a href="products.html" class="inline-block bg-primary text-white px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer hover:bg-secondary transition-colors">
+                View Products
             </a>
         </div>
     </section>
@@ -280,16 +326,16 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Enlaces</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Links</h4>
                     <ul class="space-y-2 font-body">
-                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Inicio</a></li>
-                        <li><a href="productos.html" class="text-white/80 hover:text-white cursor-pointer">Productos</a></li>
-                        <li><a href="nosotros.html" class="text-white/80 hover:text-white cursor-pointer">Nosotros</a></li>
-                        <li><a href="recetas.html" class="text-white/80 hover:text-white cursor-pointer">Recetas</a></li>
+                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Home</a></li>
+                        <li><a href="products.html" class="text-white/80 hover:text-white cursor-pointer">Products</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-white cursor-pointer">About Us</a></li>
+                        <li><a href="recipes.html" class="text-white/80 hover:text-white cursor-pointer">Recipes</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Contacto</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Contact</h4>
                     <ul class="space-y-3 font-body text-white/80">
                         <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5"></i>Calle Dulce Sabor, 23</li>
                         <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5"></i>+34 612 345 678</li>
@@ -297,16 +343,16 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Horario</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Opening Hours</h4>
                     <ul class="space-y-2 font-body text-white/80">
-                        <li class="flex justify-between"><span>Lun - Vie</span><span>9:00 - 20:00</span></li>
-                        <li class="flex justify-between"><span>Sábado</span><span>10:00 - 14:00</span></li>
-                        <li class="flex justify-between"><span>Domingo</span><span>Cerrado</span></li>
+                        <li class="flex justify-between"><span>Mon - Fri</span><span>9:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>Saturday</span><span>10:00 - 14:00</span></li>
+                        <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/20 pt-8 text-center font-body text-white/60 text-sm">
-                © 2026 Veo, Veo. Todos los derechos reservados.
+                © 2026 Veo, Veo. All rights reserved.
             </div>
         </div>
     </footer>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Veo, Veo</title>
-    <meta name="description" content="Descubre nuestra selección de galletas artesanas. 10 sabores únicos hechos con ingredientes de calidad.">
+    <title>Products - Veo, Veo</title>
+    <meta name="description" content="Discover our selection of artisan cookies. 10 unique flavors made with quality ingredients.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,10 +62,10 @@
                     <span class="font-heading text-3xl font-bold text-primary">Veo, Veo</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Inicio</a>
-                    <a href="productos.html" class="font-body font-medium text-primary transition-colors cursor-pointer">Productos</a>
-                    <a href="nosotros.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Nosotros</a>
-                    <a href="recetas.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Recetas</a>
+                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Home</a>
+                    <a href="products.html" class="font-body font-medium text-primary transition-colors cursor-pointer">Products</a>
+                    <a href="about.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">About Us</a>
+                    <a href="recipes.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Recipes</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="cartBtn" class="relative p-2 hover:bg-background rounded-full transition-colors cursor-pointer">
@@ -80,10 +80,10 @@
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 rounded-b-2xl">
             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Inicio</a>
-                <a href="productos.html" class="block font-body font-medium text-primary transition-colors py-2">Productos</a>
-                <a href="nosotros.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Nosotros</a>
-                <a href="recetas.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Recetas</a>
+                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Home</a>
+                <a href="products.html" class="block font-body font-medium text-primary transition-colors py-2">Products</a>
+                <a href="about.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">About Us</a>
+                <a href="recipes.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Recipes</a>
             </div>
         </div>
     </nav>
@@ -93,7 +93,7 @@
     <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 cart-sidebar shadow-2xl">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6 border-b">
-                <h3 class="font-heading text-3xl font-bold text-primary">Tu Carrito</h3>
+                <h3 class="font-heading text-3xl font-bold text-primary">Your Cart</h3>
                 <button id="closeCart" class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
                     <i data-lucide="x" class="w-6 h-6 text-text"></i>
                 </button>
@@ -101,7 +101,7 @@
             <div id="cartItems" class="flex-1 overflow-y-auto p-6">
                 <div class="text-center text-gray-500 mt-8">
                     <i data-lucide="shopping-bag" class="w-16 h-16 mx-auto mb-4 opacity-30"></i>
-                    <p>Tu carrito está vacío</p>
+                    <p>Your cart is empty</p>
                 </div>
             </div>
             <div class="border-t p-6 bg-gray-50">
@@ -109,7 +109,7 @@
                     <span class="font-body font-semibold text-text">Total:</span>
                     <span id="cartTotal" class="font-heading text-3xl font-bold text-primary">€0.00</span>
                 </div>
-                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Finalizar Compra</button>
+                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Checkout</button>
             </div>
         </div>
     </div>
@@ -117,8 +117,8 @@
     <!-- Hero -->
     <section class="relative pt-32 pb-16 bg-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="font-heading text-5xl md:text-7xl font-bold text-white mb-4">Nuestros Productos</h1>
-            <p class="font-body text-xl text-white/90 max-w-2xl mx-auto">10 sabores artesanales elaborados con ingredientes premium</p>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold text-white mb-4">Our Products</h1>
+            <p class="font-body text-xl text-white/90 max-w-2xl mx-auto">10 artisan flavors crafted with premium ingredients</p>
         </div>
     </section>
 
@@ -127,10 +127,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Filters -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-btn active bg-primary text-white px-6 py-2 rounded-full font-body font-medium transition-colors cursor-pointer" data-filter="all">Todos</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="clasicas">Clásicas</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="especiales">Especiales</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="saludables">Saludables</button>
+                <button class="filter-btn active bg-primary text-white px-6 py-2 rounded-full font-body font-medium transition-colors cursor-pointer" data-filter="all">All</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="clasicas">Classic</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="especiales">Special</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="saludables">Healthy</button>
             </div>
 
             <!-- Grid -->
@@ -156,16 +156,16 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Enlaces</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Links</h4>
                     <ul class="space-y-2 font-body">
-                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Inicio</a></li>
-                        <li><a href="productos.html" class="text-white/80 hover:text-white cursor-pointer">Productos</a></li>
-                        <li><a href="nosotros.html" class="text-white/80 hover:text-white cursor-pointer">Nosotros</a></li>
-                        <li><a href="recetas.html" class="text-white/80 hover:text-white cursor-pointer">Recetas</a></li>
+                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Home</a></li>
+                        <li><a href="products.html" class="text-white/80 hover:text-white cursor-pointer">Products</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-white cursor-pointer">About Us</a></li>
+                        <li><a href="recipes.html" class="text-white/80 hover:text-white cursor-pointer">Recipes</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Contacto</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Contact</h4>
                     <ul class="space-y-3 font-body text-white/80">
                         <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5"></i>Calle Dulce Sabor, 23</li>
                         <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5"></i>+34 612 345 678</li>
@@ -173,16 +173,16 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Horario</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Opening Hours</h4>
                     <ul class="space-y-2 font-body text-white/80">
-                        <li class="flex justify-between"><span>Lun - Vie</span><span>9:00 - 20:00</span></li>
-                        <li class="flex justify-between"><span>Sábado</span><span>10:00 - 14:00</span></li>
-                        <li class="flex justify-between"><span>Domingo</span><span>Cerrado</span></li>
+                        <li class="flex justify-between"><span>Mon - Fri</span><span>9:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>Saturday</span><span>10:00 - 14:00</span></li>
+                        <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/20 pt-8 text-center font-body text-white/60 text-sm">
-                © 2026 Veo, Veo. Todos los derechos reservados.
+                © 2026 Veo, Veo. All rights reserved.
             </div>
         </div>
     </footer>
@@ -192,16 +192,16 @@
 
         // Products data
         const products = [
-            { id: 'chocolate-belga', name: 'Chocolate Belga', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400', description: 'Intenso y crujiente con chocolate belga' },
-            { id: 'avena-miel', name: 'Avena y Miel', price: 5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Energía natural para tu día' },
-            { id: 'red-velvet', name: 'Red Velvet', price: 5.5, category: 'especiales', image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400', description: 'Elegancia y sabor en cada bocado' },
-            { id: 'limon-fresco', name: 'Limón Fresco', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400', description: 'Cítrico y refrescante' },
-            { id: 'chocolate-blanco', name: 'Chocolate Blanco', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400', description: 'Dulzura suave y cremosa' },
-            { id: 'matcha', name: 'Matcha Verde', price: 5.5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Té matcha de Japón' },
-            { id: 'caramelo', name: 'Caramelo Salado', price: 5, category: 'especiales', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400', description: 'Perfecto equilibrio dulce y salado' },
-            { id: 'naranja', name: 'Naranja y Chocolate', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400', description: 'Combinación clásica' },
-            { id: 'coco', name: 'Coco y Almendra', price: 5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Tropical y saludable' },
-            { id: 'pack-surtido', name: 'Pack Surtido', price: 5, category: 'especiales', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: '10 galletas surtidas', badge: 'OFERTA' }
+            { id: 'chocolate-belga', name: 'Belgian Chocolate', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400', description: 'Intense and crunchy with Belgian chocolate' },
+            { id: 'avena-miel', name: 'Oatmeal & Honey', price: 5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Natural energy for your day' },
+            { id: 'red-velvet', name: 'Red Velvet', price: 5.5, category: 'especiales', image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400', description: 'Elegance and flavor in every bite' },
+            { id: 'limon-fresco', name: 'Fresh Lemon', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400', description: 'Citrusy and refreshing' },
+            { id: 'chocolate-blanco', name: 'White Chocolate', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400', description: 'Soft and creamy sweetness' },
+            { id: 'matcha', name: 'Matcha Green', price: 5.5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Matcha tea from Japan' },
+            { id: 'caramelo', name: 'Salted Caramel', price: 5, category: 'especiales', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400', description: 'Perfect sweet and salty balance' },
+            { id: 'naranja', name: 'Orange & Chocolate', price: 5, category: 'clasicas', image: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400', description: 'Classic combination' },
+            { id: 'coco', name: 'Coconut & Almond', price: 5, category: 'saludables', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: 'Tropical and healthy' },
+            { id: 'pack-surtido', name: 'Assorted Pack', price: 5, category: 'especiales', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400', description: '10 assorted cookies', badge: 'OFFER' }
         ];
 
         // Render products
