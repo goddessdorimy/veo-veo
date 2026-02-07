@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veo, Veo - Artisan Cookies</title>
+    <meta name="description" content="Artisan cookies with great presence, fun and delicious. Made with love to share special moments.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#92400E',
+                        secondary: '#B45309',
+                        background: '#FEF3C7',
+                        text: '#78350F',
+                        cta: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        heading: ['Amatic SC', 'cursive'],
+                        body: ['Cabin', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Cabin', sans-serif;
+            background-color: #FEF3C7;
+            color: #78350F;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Amatic SC', cursive;
+        }
+        
+        .hero-slide {
+            background: linear-gradient(135deg, #92400E 0%, #B45309 100%);
+        }
+        
+        .product-card {
+            transition: all 200ms ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: #F8FAFC;
+            color: #92400E;
+            transition: all 200ms ease;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #92400E;
+            border: 2px solid #92400E;
+            transition: all 200ms ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #92400E;
+            color: white;
+        }
+        
+        .floating-nav {
+            top: 16px;
+            left: 16px;
+            right: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-nav {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+            }
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #F8FAFC !important;
+        }
+        
+        .cart-sidebar {
+            transform: translateX(100%);
+            transition: transform 300ms ease;
+        }
+        
+        .cart-sidebar.open {
+            transform: translateX(0);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed floating-nav z-50 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="cookie" class="w-8 h-8 text-primary"></i>
+                    <span class="font-heading text-3xl font-bold text-primary">Veo, Veo</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Home</a>
+                    <a href="productos.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Products</a>
+                    <a href="nosotros.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">About Us</a>
+                    <a href="recetas.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Recipes</a>
+                </div>
+                
+                <!-- Cart Icon -->
+                <div class="flex items-center space-x-4">
+                    <button id="cartBtn" class="relative p-2 hover:bg-background rounded-full transition-colors cursor-pointer">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 text-primary"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 hover:bg-background rounded-full transition-colors cursor-pointer">
+                        <i data-lucide="menu" class="w-6 h-6 text-primary"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 rounded-b-2xl">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Home</a>
+                <a href="productos.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Products</a>
+                <a href="nosotros.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">About Us</a>
+                <a href="recetas.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Recipes</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+    <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 cart-sidebar shadow-2xl">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h3 class="font-heading text-3xl font-bold text-primary">Your Cart</h3>
+                <button id="closeCart" class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
+                    <i data-lucide="x" class="w-6 h-6 text-text"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+                <!-- Cart items will be inserted here -->
+                <div class="text-center text-gray-500 mt-8">
+                    <i data-lucide="shopping-bag" class="w-16 h-16 mx-auto mb-4 opacity-30"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="border-t p-6 bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-body font-semibold text-text">Total:</span>
+                    <span id="cartTotal" class="font-heading text-3xl font-bold text-primary">€0.00</span>
+                </div>
+                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Carousel -->
+    <section class="relative pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="swiper heroSwiper rounded-3xl overflow-hidden shadow-2xl">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide relative h-[500px] md:h-[600px] bg-background">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full md:w-1/2 px-8 md:px-16">
+                                <h2 class="font-heading text-5xl md:text-7xl font-bold text-primary mb-4">Artisan<br>Cookies</h2>
+                                <p class="font-body text-lg text-text mb-6">Handcrafted with love and the finest ingredients. Each cookie is a little piece of happiness.</p>
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="font-heading text-4xl font-bold text-secondary">From €5.00</span>
+                                </div>
+                                <a href="productos.html" class="btn-primary px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer inline-flex items-center gap-2">
+                                    View Products
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                            <div class="hidden md:block w-1/2 h-full relative">
+                                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800" alt="Artisan Cookies" class="absolute inset-0 w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide relative h-[500px] md:h-[600px] bg-background">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full md:w-1/2 px-8 md:px-16">
+                                <h2 class="font-heading text-5xl md:text-7xl font-bold text-primary mb-4">Chocolate<br>Cookies</h2>
+                                <p class="font-body text-lg text-text mb-6">Crunchy on the outside, soft on the inside. Made with authentic Belgian chocolate.</p>
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="font-heading text-4xl font-bold text-secondary">€5.00</span>
+                                    <span class="font-body text-gray-500 line-through">€6.50</span>
+                                </div>
+                                <button onclick="addToCart('chocolate', 'Chocolate Cookies', 5, 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400')" class="btn-primary px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer inline-flex items-center gap-2">
+                                    <i data-lucide="plus" class="w-5 h-5"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="hidden md:block w-1/2 h-full relative">
+                                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800" alt="Chocolate Cookies" class="absolute inset-0 w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide relative h-[500px] md:h-[600px] bg-background">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full md:w-1/2 px-8 md:px-16">
+                                <h2 class="font-heading text-5xl md:text-7xl font-bold text-primary mb-4">Tasting<br>Pack</h2>
+                                <p class="font-body text-lg text-text mb-6">10 assorted cookies of our most popular flavors. Perfect for sharing or discovering your favorite.</p>
+                                <div class="flex items-center gap-4 mb-8">
+                                    <span class="font-heading text-4xl font-bold text-secondary">€5.00</span>
+                                    <span class="font-body text-gray-500 line-through">€7.00</span>
+                                </div>
+                                <button onclick="addToCart('pack', 'Tasting Pack', 5, 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400')" class="btn-primary px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer inline-flex items-center gap-2">
+                                    <i data-lucide="plus" class="w-5 h-5"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <div class="hidden md:block w-1/2 h-full relative">
+                                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800" alt="Tasting Pack" class="absolute inset-0 w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next !text-white"></div>
+                <div class="swiper-button-prev !text-white"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">Fan Favorites</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-4">Best Sellers</h2>
+                <p class="font-body text-lg text-text max-w-2xl mx-auto">Discover why these flavors conquer all our customers. Pure addiction!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400" alt="Belgian Chocolate Cookies" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl font-bold text-primary mb-2">Belgian Chocolate</h3>
+                        <p class="font-body text-sm text-gray-600 mb-4">Intense and crunchy</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading text-2xl font-bold text-secondary">€5.00</span>
+                            <button onclick="addToCart('chocolate-belga', 'Belgian Chocolate', 5, 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400')" class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-colors cursor-pointer">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400" alt="Oatmeal & Honey Cookies" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl font-bold text-primary mb-2">Oatmeal & Honey</h3>
+                        <p class="font-body text-sm text-gray-600 mb-4">Natural energy</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading text-2xl font-bold text-secondary">€5.00</span>
+                            <button onclick="addToCart('avena-miel', 'Oatmeal & Honey', 5, 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400')" class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-colors cursor-pointer">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400" alt="Red Velvet Cookies" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl font-bold text-primary mb-2">Red Velvet</h3>
+                        <p class="font-body text-sm text-gray-600 mb-4">Elegance and flavor</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading text-2xl font-bold text-secondary">€5.50</span>
+                            <button onclick="addToCart('red-velvet', 'Red Velvet', 5.5, 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=400')" class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-colors cursor-pointer">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=400" alt="Fresh Lemon Cookies" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl font-bold text-primary mb-2">Fresh Lemon</h3>
+                        <p class="font-body text-sm text-gray-600 mb-4">Citrusy and refreshing</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading text-2xl font-bold text-secondary">€5.00</span>
+                            <button onclick="addToCart('limon-fresco', 'Fresh Lemon', 5, 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400')" class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-colors cursor-pointer">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="productos.html" class="btn-secondary px-8 py-4 rounded-xl font-body font-semibold text-lg cursor-pointer inline-flex items-center gap-2">
+                    View All Products
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="py-16 md:py-24 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h2 class="font-heading text-5xl md:text-6xl font-bold mb-6">Tasting Pack</h2>
+                    <p class="font-body text-xl mb-6 opacity-90">Discover all our flavors with this special pack. 10 assorted cookies of our most popular flavors.</p>
+                    <ul class="space-y-3 mb-8 font-body">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            10 assorted cookies
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            Eco-friendly packaging
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            Free shipping
+                        </li>
+                    </ul>
+                    <div class="flex items-center gap-6 mb-8">
+                        <div>
+                            <span class="font-body text-sm opacity-70">Regular price</span>
+                            <p class="font-heading text-2xl line-through opacity-60">€7.00</p>
+                        </div>
+                        <div>
+                            <span class="font-body text-sm opacity-70">Special price</span>
+                            <p class="font-heading text-5xl font-bold">€5.00</p>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('pack-degustacion', 'Tasting Pack', 5, 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400')" class="bg-white text-primary px-8 py-4 rounded-xl font-body font-bold text-lg cursor-pointer hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        Buy Now
+                    </button>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-white/10 rounded-3xl transform rotate-3"></div>
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800" alt="Tasting Pack" class="relative rounded-3xl shadow-2xl w-full">
+                    <div class="absolute -top-4 -right-4 bg-yellow-400 text-primary w-24 h-24 rounded-full flex items-center justify-center transform rotate-12 shadow-lg">
+                        <div class="text-center">
+                            <span class="font-heading text-3xl font-bold block">-30%</span>
+                            <span class="font-body text-xs font-bold">OFF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-body font-semibold mb-4">Testimonials</span>
+                <h2 class="font-heading text-5xl md:text-6xl font-bold text-primary mb-4">What Our Customers Say</h2>
+                <p class="font-body text-lg text-text max-w-2xl mx-auto">Real experiences from people who have enjoyed our cookies</p>
+            </div>
+            
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Review 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card rounded-2xl p-8 shadow-lg mx-2">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                            <p class="font-body text-lg text-text mb-6 italic">"The best cookies I've ever tasted in my life. They're addictive, beautiful, and the flavor is incredible. Perfect for my Instagram stories."</p>
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Maria G." class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-body font-bold text-text">Maria G.</p>
+                                    <p class="font-body text-sm text-gray-500">Madrid, 25 years old</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card rounded-2xl p-8 shadow-lg mx-2">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                            <p class="font-body text-lg text-text mb-6 italic">"I ordered the tasting pack for a gathering with friends and it was a total success. Everyone wanted to know where I bought them. I'll definitely order again!"</p>
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Carlos R." class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-body font-bold text-text">Carlos R.</p>
+                                    <p class="font-body text-sm text-gray-500">Barcelona, 28 years old</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card rounded-2xl p-8 shadow-lg mx-2">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                            <p class="font-body text-lg text-text mb-6 italic">"I love that they're artisan and the packaging is organic. You can tell there's care in every detail. The chocolate ones are my weakness."</p>
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Lucia M." class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <p class="font-body font-bold text-text">Lucia M.</p>
+                                    <p class="font-body text-sm text-gray-500">Valencia, 23 years old</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="cookie" class="w-8 h-8"></i>
+                        <span class="font-heading text-3xl font-bold">Veo, Veo</span>
+                    </div>
+                    <p class="font-body text-white/80 mb-4">Artisan cookies made with love to sweeten your special moments.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors cursor-pointer" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors cursor-pointer" aria-label="TikTok">
+                            <i data-lucide="video" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors cursor-pointer" aria-label="Twitter">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Links</h4>
+                    <ul class="space-y-2 font-body">
+                        <li><a href="index.html" class="text-white/80 hover:text-white transition-colors cursor-pointer">Home</a></li>
+                        <li><a href="productos.html" class="text-white/80 hover:text-white transition-colors cursor-pointer">Products</a></li>
+                        <li><a href="nosotros.html" class="text-white/80 hover:text-white transition-colors cursor-pointer">About Us</a></li>
+                        <li><a href="recetas.html" class="text-white/80 hover:text-white transition-colors cursor-pointer">Recipes</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Contact</h4>
+                    <ul class="space-y-3 font-body text-white/80">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            Calle Dulce Sabor, 23, Madrid
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            +34 612 345 678
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                            hola@veoveo.com
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Hours -->
+                <div>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Opening Hours</h4>
+                    <ul class="space-y-2 font-body text-white/80">
+                        <li class="flex justify-between">
+                            <span>Mon - Fri</span>
+                            <span>9:00 - 20:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>10:00 - 14:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-body text-white/60 text-sm">© 2026 Veo, Veo. All rights reserved.</p>
+                <div class="flex gap-6 font-body text-sm text-white/60">
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('veoVeoCart')) || [];
+        
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `€${totalPrice.toFixed(2)}`;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center text-gray-500 mt-8">
+                        <i data-lucide="shopping-bag" class="w-16 h-16 mx-auto mb-4 opacity-30"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex gap-4 mb-4 pb-4 border-b">
+                        <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-body font-bold text-text">${item.name}</h4>
+                            <p class="font-body text-secondary font-semibold">€${item.price.toFixed(2)}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateQuantity('${item.id}', -1)" class="p-1 hover:bg-gray-100 rounded cursor-pointer">
+                                    <i data-lucide="minus" class="w-4 h-4"></i>
+                                </button>
+                                <span class="font-body font-semibold w-8 text-center">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)" class="p-1 hover:bg-gray-100 rounded cursor-pointer">
+                                    <i data-lucide="plus" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="removeFromCart('${item.id}')" class="ml-auto p-1 hover:bg-red-50 text-red-500 rounded cursor-pointer">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            lucide.createIcons();
+            localStorage.setItem('veoVeoCart', JSON.stringify(cart));
+        }
+        
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+            updateCart();
+            openCart();
+        }
+        
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+        
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        
+        // Cart Sidebar
+        const cartBtn = document.getElementById('cartBtn');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCart = document.getElementById('closeCart');
+        
+        function openCart() {
+            cartSidebar.classList.add('open');
+            cartOverlay.classList.remove('hidden');
+            setTimeout(() => cartOverlay.classList.remove('opacity-0'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCartSidebar() {
+            cartSidebar.classList.remove('open');
+            cartOverlay.classList.add('opacity-0');
+            setTimeout(() => {
+                cartOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+        
+        cartBtn.addEventListener('click', openCart);
+        closeCart.addEventListener('click', closeCartSidebar);
+        cartOverlay.addEventListener('click', closeCartSidebar);
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-xl');
+            } else {
+                navbar.classList.remove('shadow-xl');
+            }
+        });
+        
+        // Initialize Swiper - Hero
+        const heroSwiper = new Swiper('.heroSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+        
+        // Initialize Swiper - Testimonials
+        const testimonialSwiper = new Swiper('.testimonialSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+        
+        // Initialize cart on load
+        updateCart();
+    </script>
+</body>
+</html>
