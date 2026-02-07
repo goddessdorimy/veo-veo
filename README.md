@@ -14,7 +14,7 @@ Veo, Veo is a demo website showcasing artisan cookies with a modern, responsive 
 
 ## Live Demo
 
-Visit the live site at: https://[your-username].github.io/veo-veo
+Visit the live site at: https://goddessdorimy.github.io/veo-veo
 
 ## Technologies
 
