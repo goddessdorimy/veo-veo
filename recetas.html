@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Veo, Veo</title>
-    <meta name="description" content="Discover our secret recipes for making artisan cookies at home. Tips, tricks, and incredible flavors.">
+    <title>Recetas - Veo, Veo</title>
+    <meta name="description" content="Descubre nuestras recetas secretas para hacer galletas artesanas en casa. Consejos, trucos y sabores increíbles.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,10 +61,10 @@
                     <span class="font-heading text-3xl font-bold text-primary">Veo, Veo</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Home</a>
-                    <a href="productos.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Products</a>
-                    <a href="nosotros.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">About Us</a>
-                    <a href="recetas.html" class="font-body font-medium text-primary transition-colors cursor-pointer">Recipes</a>
+                    <a href="index.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Inicio</a>
+                    <a href="productos.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Productos</a>
+                    <a href="nosotros.html" class="font-body font-medium text-text hover:text-primary transition-colors cursor-pointer">Nosotros</a>
+                    <a href="recetas.html" class="font-body font-medium text-primary transition-colors cursor-pointer">Recetas</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="cartBtn" class="relative p-2 hover:bg-background rounded-full transition-colors cursor-pointer">
@@ -79,10 +79,10 @@
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 rounded-b-2xl">
             <div class="px-4 py-4 space-y-3">
-                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Home</a>
-                <a href="productos.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Products</a>
-                <a href="nosotros.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">About Us</a>
-                <a href="recetas.html" class="block font-body font-medium text-primary transition-colors py-2">Recipes</a>
+                <a href="index.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Inicio</a>
+                <a href="productos.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Productos</a>
+                <a href="nosotros.html" class="block font-body font-medium text-text hover:text-primary transition-colors py-2">Nosotros</a>
+                <a href="recetas.html" class="block font-body font-medium text-primary transition-colors py-2">Recetas</a>
             </div>
         </div>
     </nav>
@@ -92,7 +92,7 @@
     <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 cart-sidebar shadow-2xl">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6 border-b">
-                <h3 class="font-heading text-3xl font-bold text-primary">Your Cart</h3>
+                <h3 class="font-heading text-3xl font-bold text-primary">Tu Carrito</h3>
                 <button id="closeCart" class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
                     <i data-lucide="x" class="w-6 h-6 text-text"></i>
                 </button>
@@ -100,7 +100,7 @@
             <div id="cartItems" class="flex-1 overflow-y-auto p-6">
                 <div class="text-center text-gray-500 mt-8">
                     <i data-lucide="shopping-bag" class="w-16 h-16 mx-auto mb-4 opacity-30"></i>
-                    <p>Your cart is empty</p>
+                    <p>Tu carrito está vacío</p>
                 </div>
             </div>
             <div class="border-t p-6 bg-gray-50">
@@ -108,7 +108,7 @@
                     <span class="font-body font-semibold text-text">Total:</span>
                     <span id="cartTotal" class="font-heading text-3xl font-bold text-primary">€0.00</span>
                 </div>
-                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Checkout</button>
+                <button class="w-full btn-primary py-4 rounded-xl font-body font-semibold text-lg cursor-pointer">Finalizar Compra</button>
             </div>
         </div>
     </div>
@@ -116,9 +116,9 @@
     <!-- Hero -->
     <section class="relative pt-32 pb-16 bg-gradient-to-br from-primary to-secondary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-body font-semibold mb-6 text-white">Our Kitchen</span>
-            <h1 class="font-heading text-5xl md:text-7xl font-bold text-white mb-4">Secret Recipes</h1>
-            <p class="font-body text-xl text-white/90 max-w-2xl mx-auto">Discover how to make incredible cookies at home. Tips, tricks, and flavors that make you fall in love.</p>
+            <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-body font-semibold mb-6 text-white">Nuestra Cocina</span>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold text-white mb-4">Recetas Secretas</h1>
+            <p class="font-body text-xl text-white/90 max-w-2xl mx-auto">Descubre cómo hacer galletas increíbles en casa. Consejos, trucos y sabores que te enamoran.</p>
         </div>
     </section>
 
@@ -127,10 +127,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Filters -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-btn active bg-primary text-white px-6 py-2 rounded-full font-body font-medium transition-colors cursor-pointer" data-filter="all">All</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="easy">Easy</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="medium">Medium</button>
-                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="advanced">Advanced</button>
+                <button class="filter-btn active bg-primary text-white px-6 py-2 rounded-full font-body font-medium transition-colors cursor-pointer" data-filter="all">Todas</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="easy">Fácil</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="medium">Media</button>
+                <button class="filter-btn bg-white text-text px-6 py-2 rounded-full font-body font-medium hover:bg-primary hover:text-white transition-colors cursor-pointer" data-filter="advanced">Avanzada</button>
             </div>
 
             <!-- Grid -->
@@ -169,16 +169,16 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Links</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Enlaces</h4>
                     <ul class="space-y-2 font-body">
-                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Home</a></li>
-                        <li><a href="productos.html" class="text-white/80 hover:text-white cursor-pointer">Products</a></li>
-                        <li><a href="nosotros.html" class="text-white/80 hover:text-white cursor-pointer">About Us</a></li>
-                        <li><a href="recetas.html" class="text-white/80 hover:text-white cursor-pointer">Recipes</a></li>
+                        <li><a href="index.html" class="text-white/80 hover:text-white cursor-pointer">Inicio</a></li>
+                        <li><a href="productos.html" class="text-white/80 hover:text-white cursor-pointer">Productos</a></li>
+                        <li><a href="nosotros.html" class="text-white/80 hover:text-white cursor-pointer">Nosotros</a></li>
+                        <li><a href="recetas.html" class="text-white/80 hover:text-white cursor-pointer">Recetas</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Contact</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Contacto</h4>
                     <ul class="space-y-3 font-body text-white/80">
                         <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5"></i>Calle Dulce Sabor, 23</li>
                         <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5"></i>+34 612 345 678</li>
@@ -186,16 +186,16 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-heading text-2xl font-bold mb-4">Opening Hours</h4>
+                    <h4 class="font-heading text-2xl font-bold mb-4">Horario</h4>
                     <ul class="space-y-2 font-body text-white/80">
-                        <li class="flex justify-between"><span>Mon - Fri</span><span>9:00 - 20:00</span></li>
-                        <li class="flex justify-between"><span>Saturday</span><span>10:00 - 14:00</span></li>
-                        <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
+                        <li class="flex justify-between"><span>Lun - Vie</span><span>9:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>Sábado</span><span>10:00 - 14:00</span></li>
+                        <li class="flex justify-between"><span>Domingo</span><span>Cerrado</span></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/20 pt-8 text-center font-body text-white/60 text-sm">
-                © 2026 Veo, Veo. All rights reserved.
+                © 2026 Veo, Veo. Todos los derechos reservados.
             </div>
         </div>
     </footer>
@@ -207,63 +207,63 @@
         const recipes = [
             {
                 id: 1,
-                title: 'Classic Chocolate Cookies',
+                title: 'Galletas Clásicas de Chocolate',
                 difficulty: 'easy',
                 time: '45 min',
                 image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600',
-                description: 'The classic chocolate cookies that never fail. Crunchy on the outside, soft on the inside.',
-                ingredients: ['200g flour', '100g sugar', '100g butter', '50g cocoa powder', '1 egg', '1 teaspoon baking powder', '100g chocolate chips'],
-                steps: ['Preheat oven to 180°C', 'Mix butter with sugar', 'Add egg and mix well', 'Incorporate flour, cocoa, and baking powder', 'Add chocolate chips', 'Form balls and place on tray', 'Bake for 12-15 minutes']
+                description: 'Las clásicas galletas de chocolate que nunca fallan. Crujientes por fuera, suaves por dentro.',
+                ingredients: ['200g harina', '100g azúcar', '100g mantequilla', '50g cacao en polvo', '1 huevo', '1 cucharadita de levadura', '100g chispas de chocolate'],
+                steps: ['Precalentar el horno a 180°C', 'Mezclar mantequilla con azúcar', 'Añadir huevo y mezclar bien', 'Incorporar harina, cacao y levadura', 'Añadir chispas de chocolate', 'Formar bolas y colocar en bandeja', 'Hornear 12-15 minutos']
             },
             {
                 id: 2,
-                title: 'Healthy Oatmeal & Raisin',
+                title: 'Avena y Pasas Saludables',
                 difficulty: 'easy',
                 time: '35 min',
                 image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600',
-                description: 'Nutritious cookies perfect for breakfast or snack. No refined sugars.',
-                ingredients: ['250g oatmeal', '2 ripe bananas', '50g raisins', '1 tablespoon cinnamon', '1 tablespoon coconut oil', 'A pinch of salt'],
-                steps: ['Mash bananas in a bowl', 'Add oatmeal and mix', 'Incorporate raisins and cinnamon', 'Add coconut oil', 'Form cookies and place on tray', 'Bake at 170°C for 15 minutes']
+                description: 'Galletas nutritivas perfectas para desayuno o merienda. Sin azúcares refinados.',
+                ingredients: ['250g avena', '2 plátanos maduros', '50g pasas', '1 cucharada de canela', '1 cucharada de aceite de coco', 'Una pizca de sal'],
+                steps: ['Machacar plátanos en un bowl', 'Añadir avena y mezclar', 'Incorporar pasas y canela', 'Añadir aceite de coco', 'Formar galletas y colocar en bandeja', 'Hornear a 170°C durante 15 minutos']
             },
             {
                 id: 3,
-                title: 'Red Velvet with Cream',
+                title: 'Red Velvet con Crema',
                 difficulty: 'medium',
                 time: '60 min',
                 image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=600',
-                description: 'Elegant red velvet cookies with a cream cheese touch. Perfect for special occasions.',
-                ingredients: ['250g flour', '150g sugar', '100g butter', '2 eggs', '2 tablespoons cocoa', 'Red food coloring', '1 teaspoon vinegar', '100g cream cheese', '50g powdered sugar'],
-                steps: ['Beat butter with sugar', 'Add eggs one by one', 'Mix dry ingredients', 'Add coloring and vinegar', 'Form dough and refrigerate 30 min', 'Bake at 175°C for 12 min', 'Prepare cream by mixing cheese and sugar', 'Decorate cold cookies']
+                description: 'Elegantes galletas red velvet con un toque de queso crema. Perfectas para ocasiones especiales.',
+                ingredients: ['250g harina', '150g azúcar', '100g mantequilla', '2 huevos', '2 cucharadas de cacao', 'Colorante rojo', '1 cucharadita de vinagre', '100g queso crema', '50g azúcar glas'],
+                steps: ['Batir mantequilla con azúcar', 'Añadir huevos uno a uno', 'Mezclar ingredientes secos', 'Añadir colorante y vinagre', 'Formar masa y refrigerar 30 min', 'Hornear a 175°C durante 12 min', 'Preparar crema mezclando queso y azúcar', 'Decorar galletas frías']
             },
             {
                 id: 4,
-                title: 'Matcha Cookies',
+                title: 'Galletas de Matcha',
                 difficulty: 'medium',
                 time: '40 min',
                 image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600',
-                description: 'Exotic cookies with Japanese matcha tea. A unique and sophisticated flavor.',
-                ingredients: ['200g flour', '100g butter', '80g sugar', '2 tablespoons matcha powder', '1 egg yolk', 'Sliced almonds'],
-                steps: ['Sift flour with matcha', 'Beat butter with sugar', 'Add yolk', 'Incorporate flour mixture', 'Form a cylinder and refrigerate', 'Cut 1cm slices', 'Decorate with almonds', 'Bake at 170°C for 15 min']
+                description: 'Galletas exóticas con té matcha japonés. Un sabor único y sofisticado.',
+                ingredients: ['200g harina', '100g mantequilla', '80g azúcar', '2 cucharadas de matcha en polvo', '1 yema de huevo', 'Almendras laminadas'],
+                steps: ['Tamizar harina con matcha', 'Batir mantequilla con azúcar', 'Añadir yema', 'Incorporar mezcla de harina', 'Formar cilindro y refrigerar', 'Cortar rodajas de 1cm', 'Decorar con almendras', 'Hornear a 170°C durante 15 min']
             },
             {
                 id: 5,
-                title: 'Gourmet Salted Caramel',
+                title: 'Caramelo Salado Gourmet',
                 difficulty: 'advanced',
                 time: '90 min',
                 image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600',
-                description: 'The perfect balance between sweet and salty. For demanding palates.',
-                ingredients: ['200g flour', '150g butter', '100g brown sugar', '100g white sugar', '200ml cream', '1 teaspoon sea salt', 'Salt flakes'],
-                steps: ['Prepare caramel with sugar and cream', 'Let caramel cool', 'Prepare cookie dough', 'Incorporate cold caramel', 'Refrigerate dough 1 hour', 'Form cookies', 'Bake at 160°C for 18 min', 'Add salt flakes when removed']
+                description: 'El equilibrio perfecto entre dulce y salado. Para paladares exigentes.',
+                ingredients: ['200g harina', '150g mantequilla', '100g azúcar moreno', '100g azúcar blanco', '200ml nata', '1 cucharadita de sal marina', 'Escamas de sal'],
+                steps: ['Preparar caramelo con azúcar y nata', 'Dejar enfriar el caramelo', 'Preparar masa de galletas', 'Incorporar caramelo frío', 'Refrigerar masa 1 hora', 'Formar galletas', 'Hornear a 160°C durante 18 min', 'Añadir escamas de sal al sacar']
             },
             {
                 id: 6,
-                title: 'Lemon & Poppy Seed',
+                title: 'Limón y Semillas de Amapola',
                 difficulty: 'easy',
                 time: '35 min',
                 image: 'https://images.unsplash.com/photo-1612203985729-70726954388c?w=600',
-                description: 'Fresh and aromatic. The citrus of lemon with the crunch of poppy seeds.',
-                ingredients: ['200g flour', '100g butter', '80g sugar', 'Zest of 2 lemons', '2 tablespoons poppy seeds', '1 egg'],
-                steps: ['Zest the lemons', 'Beat butter with sugar and zest', 'Add egg', 'Incorporate flour and poppy seeds', 'Form dough and refrigerate', 'Roll out and cut shapes', 'Bake at 175°C for 12 min']
+                description: 'Frescas y aromáticas. Lo cítrico del limón con el crujiente de las semillas de amapola.',
+                ingredients: ['200g harina', '100g mantequilla', '80g azúcar', 'Ralladura de 2 limones', '2 cucharadas de semillas de amapola', '1 huevo'],
+                steps: ['Rallar los limones', 'Batir mantequilla con azúcar y ralladura', 'Añadir huevo', 'Incorporar harina y semillas', 'Formar masa y refrigerar', 'Estirar y cortar formas', 'Hornear a 175°C durante 12 min']
             }
         ];
 
@@ -294,7 +294,7 @@
                         <h3 class="font-heading text-2xl font-bold text-primary mb-2">${recipe.title}</h3>
                         <p class="font-body text-sm text-gray-600 mb-4">${recipe.description}</p>
                         <button class="text-primary font-body font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                            View recipe <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            Ver receta <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
@@ -341,7 +341,7 @@
                     <div class="bg-background p-8 rounded-2xl mb-8">
                         <h3 class="font-heading text-3xl font-bold text-primary mb-6 flex items-center gap-3">
                             <i data-lucide="shopping-basket" class="w-8 h-8"></i>
-                            Ingredients
+                            Ingredientes
                         </h3>
                         <ul class="grid md:grid-cols-2 gap-3 font-body">
                             ${recipe.ingredients.map(ing => `
@@ -356,7 +356,7 @@
                     <div>
                         <h3 class="font-heading text-3xl font-bold text-primary mb-6 flex items-center gap-3">
                             <i data-lucide="list-ordered" class="w-8 h-8"></i>
-                            Preparation
+                            Preparación
                         </h3>
                         <div class="space-y-6">
                             ${recipe.steps.map((step, index) => `
@@ -373,7 +373,7 @@
                     <div class="mt-12 p-6 bg-secondary/10 rounded-2xl border-l-4 border-secondary">
                         <p class="font-body text-text italic">
                             <i data-lucide="lightbulb" class="w-5 h-5 inline mr-2"></i>
-                            <strong>Veo, Veo Tip:</strong> Let cookies cool completely before storing. This way they'll keep their perfect texture!
+                            <strong>Consejo Veo, Veo:</strong> Deja enfriar las galletas completamente antes de guardarlas. ¡Así mantendrán su textura perfecta!
                         </p>
                     </div>
                 </div>
